@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Основной контейнер */
+.default-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(circle, #3750d1 5%, #04007f 95%);
+  height: 15vh;
+  margin: 0 auto;
+}
+
+.nav-icon {
+  display: none; /* Скрываем на больших экранах */
+  width: 30px;
+  height: 25px;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  color: #FFFFFF;
+  margin-left: auto;
+}
+
+.nav-icon div {
+  width: 100%;
+  height: 3px;
+  background-color: #FFFFFF;
+  transition: 0.3s;
+  border-radius: 3px; 
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); 
+  background: linear-gradient(145deg, #ffffff, #cccccc); 
+}
+
+/* Скрываем меню на маленьких экранах */
+.menu.active {
+  display: block;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: radial-gradient(#5975FF 5%, #04007f 95%);
+  padding: 10px;
+  box-shadow: 0px 8px 16px rgba(254, 254, 254, 0.326);
+  border-radius: 27px;
+}
+
+/* Анимация для Navicon (смена на X) */
+.nav-icon.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-icon.open div:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-icon.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu-item {
+  position: relative;
+}
+
+/* Меню */
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    top: 4vh;
+  }
+
+  .nav-icon {
+    display: flex;
+  }
+
+  .menu {
+    display: none;
+  }
+}
+
+.menu li {
+  margin: 5px 0;
+}
+
+.menu a {
+  color: #fff; /* Ссылки меню тоже делаем белыми */
+  text-decoration: none;
+}
+
+
+/* Стили для ссылок */
+.nav-main_link-head {
+  font-size: 1.6rem;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* Логотип */
+.logo-head {
+  position: absolute;
+  width: 15vw;
+  /* Задаем ширину в процентах от ширины экрана */
+  top: 0rem;
+  margin-left: -18rem;
+}
+
+/* Навигационное меню */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  margin-top: 2vh;
+ 
+}
+
+.wrapper .menu {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.menu-item {
+  position: relative;
+  list-style: none;
+}
+
+.nav-main_link-head {
+  font-size: 1.6rem;
+  /* Относительный размер шрифта */
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #3029D9;
+  box-shadow: 0px 8px 16px rgba(254, 254, 254, 0.326);
+  border-radius: 27px;
+  z-index: 1;
+}
+
+.menu-item:hover .submenu {
+  display: block;
+}
+
+.submenu-link {
+  display: block;
+  padding: 1rem;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.wrapper a {
+  margin-right: 1.5rem;
+  color: #FFFFFF;
+}
+
+/* Индикаторы слайдера */
+.next-main-slider-dots {
+  display: flex;
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.next-main-slider-dots > span {
+  width: 13px;
+  height: 13px;
+  background-color: #808080;
+  margin-left: 13px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.next-main-slider-dots > span.active {
+  background-color: #DFDFDF;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .default-container {
+    height: 20vh;
+  }
+
+  .wrapper {
+    margin-top: 3vh;
+  }
+
+  .wrapper .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .wrapper a {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .logo-head {
+    width: 25vw;
+    top: 0;
+  }
+
+  .slider-img {
+    width: 90%;
+    max-width: none;
+    margin-top: 10vh;
+  }
+
+  .slider-img-txt > .p-head {
+    font-size: 1.5rem;
+    top: 75vh;
+  }
+
+  .next-main-slider-dots {
+    bottom: 15%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .slider-img {
+    width: 60%;
+    margin-top: 15vh;
+  }
+
+  .slider-img-txt > .p-head {
+    font-size: 1.8rem;
+    top: 60vh;
+  }
+
+  .next-main-slider-dots {
+    bottom: 10%;
+  }
+}
